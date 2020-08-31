@@ -9,7 +9,7 @@ function ListItem(props) {
 
     const editHandler = (el) => {
         setEditTodo(el)
-        setEditIsOpen(false)
+        setEditIsOpen(true)
     }
 
     const saveHandler = (id) => {
