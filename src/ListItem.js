@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 function ListItem(props) {
 
-    const {el} = props
+    const {el, moveUp, index, moveDown} = props
 
     const [editTodo, setEditTodo] = useState('')
     const [editIsOpen, setEditIsOpen] = useState(false)
@@ -28,12 +28,13 @@ function ListItem(props) {
                         <button onClick={() => saveHandler(el.id)}>Save</button>
                         <button onClick={()=> setEditIsOpen(false)}>Cancel</button>
                     </>
-
                 ) : (
                     <>
                         {el.name}
                         <button onClick={() => editHandler(el.name, el.id)}>Edit</button>
                         <button onClick={() => props.deleteTodo(el.id)}>Del</button>
+                        <button onClick={()=> moveUp(index)}>Up</button>
+                        <button onClick={()=> moveDown(index)}>Down</button>
                     </>
                 )
                 }

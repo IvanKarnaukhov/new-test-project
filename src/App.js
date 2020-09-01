@@ -54,15 +54,32 @@ function App() {
         Promise.all(promises)
             .then(results => console.log(results))
             .catch(error => console.log(error))
+    }
 
+    const moveUp =(i)=> {
+        if (i !== 0) {
+        const newTodos = [...todos]
+            newTodos.splice(i - 1, 0, newTodos.splice(i, 1)[0])
+            setTodos(newTodos)
+    }
+    }
 
+    const moveDown =(i)=> {
+        const newTodos = [...todos]
+        newTodos.splice(i + 1, 0, newTodos.splice(i, 1) [0])
+        setTodos(newTodos)
     }
 
     return (
 
         <div>
             <CreateForm createTodo={createTodo}/>
-            <ListItems todos={todos} deleteTodo={deleteTodo} editTodo={editTodo}/>
+            <ListItems todos={todos}
+                       deleteTodo={deleteTodo}
+                       editTodo={editTodo}
+                       moveUp={moveUp}
+                       moveDown={moveDown}
+            />
             <button onClick={()=> pushAllTodos()}>Push</button>
         </div>
     );
