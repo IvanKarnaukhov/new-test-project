@@ -4,6 +4,7 @@ import ListItem from "./ListItem";
 function ListItems(props) {
 
 const {todos, moveUp, moveDown} = props
+    const length = todos.length
 
     return (
 
@@ -15,6 +16,7 @@ const {todos, moveUp, moveDown} = props
                     key={el.id} moveUp={moveUp}
                     index={i}
                     moveDown={moveDown}
+                    length={length}
                 />
                 )}
         </div>
